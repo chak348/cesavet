@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CESAVET · Expediente</title>
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/cesavet-fiel.css" rel="stylesheet">
+  <link href="css/cesavet-correcciones.css" rel="stylesheet">
+</head>
+
+<body class="pg-historial expediente-hoja">
+
+  <!-- Huellitas decorativas del expediente -->
+  <div class="huellitas-fondo" aria-hidden="true">
+    <span class="huella h1">🐾</span>
+    <span class="huella h2">🐾</span>
+    <span class="huella h3">🐾</span>
+    <span class="huella h4">🐾</span>
+    <span class="huella h5">🐾</span>
+    <span class="huella h6">🐾</span>
+    <span class="huella h7">🐾</span>
+    <span class="huella h8">🐾</span>
+    <span class="huella h9">🐾</span>
+  </div>
+
+  {{menu}}
+  <main class="expediente-papel">
+    {{expediente_aviso}}
+    {{expediente_resultados}}
+    <div class="expediente-edicion-barra">{{expediente_edicion_boton}}</div>
+    <header class="expediente-titulo">
+      <h1>EXPEDIENTE</h1>
+    </header>
+
+    <div class="expediente-pagina" data-hoja="1">
+      <section class="expediente-datos-superiores">
+        <article class="hoja-bloque">
+          <h2>Datos del Propietario</h2>
+          <div class="hoja-datos">{{expediente_dueno}}</div>
+        </article>
+        <article class="hoja-bloque">
+          <h2>Datos de la Mascota</h2>
+          <div class="hoja-datos">{{expediente_mascota}}</div>
+          {{expediente_edicion_color}}
+        </article>
+      </section>
+
+    </div>
+    <div class="expediente-pagina" data-hoja="2" hidden>
+      <section class="hoja-bloque hoja-vacunacion">
+        <h2>Registro de Vacunación</h2>
+        <div class="hoja-tabla-wrap">{{expediente_vacunas}}</div>
+        {{expediente_form_vacuna}}
+      </section>
+
+    </div>
+    <div class="expediente-pagina" data-hoja="3" hidden>
+      <section class="expediente-datos-inferiores">
+        <article class="hoja-bloque">
+          <h2>Desparasitaciones Internas y Externas</h2>
+          <div class="hoja-tabla-wrap">{{expediente_desparasitacion}}</div>
+          {{expediente_form_desparasitacion}}
+        </article>
+        <article class="hoja-bloque">
+          <h2>Control Reproductivo</h2>
+          <div class="hoja-tabla-wrap">{{expediente_reproductivo}}</div>
+          {{expediente_form_reproductivo}}
+        </article>
+      </section>
+
+    </div>
+    <div class="expediente-pagina" data-hoja="4" hidden>
+      <section class="hoja-bloque hoja-historia-medica">
+        <h2>Historia Médica</h2>
+        <div class="hoja-tabla-wrap">{{expediente_historia_medica}}</div>
+        {{expediente_form_historia}}
+      </section>
+    </div>
+    <div class="expediente-controles-inferiores">
+      <nav class="expediente-navegacion ces-paginacion" aria-label="Páginas del expediente">
+        <button type="button" data-hoja-anterior aria-label="Página anterior">‹</button>
+        <button type="button" data-hoja-numero="1">1</button>
+        <button type="button" data-hoja-numero="2">2</button>
+        <button type="button" data-hoja-numero="3">3</button>
+        <button type="button" data-hoja-numero="4">4</button>
+        <button type="button" data-hoja-siguiente aria-label="Página siguiente">›</button>
+      </nav>
+      <div class="expediente-imprimir-barra"><button type="button" class="expediente-imprimir"
+          onclick="window.print()">Imprimir expediente</button></div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <span>
+      © Copyright 2026 CESAVET Clínica Veterinaria.
+      Todos los derechos reservados |
+      Cochabamba - Bolivia. | Equipo ESTRALS
+    </span>
+  </footer>
+  <script defer src="js/expediente-paginas.js"></script>
+</body>
+
+</html>
